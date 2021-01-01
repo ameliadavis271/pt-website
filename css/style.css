@@ -68,6 +68,8 @@ body {
   color: #fff;
   /* changes text to uppercase */
   text-transform: uppercase;
+  /* helps hide shakiness from animation from children animations, no one knows how or why it happens and how this fixes it  */
+  backface-visibility: hidden;
 }
 
 .heading-primary-main {
@@ -77,6 +79,13 @@ body {
   font-weight: 700;
   /* spacing between each individual letter */
   letter-spacing: 35px;
+  /* animation */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* Below are some useful animation components */
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 2s; */
 }
 
 .heading-primary-sub {
@@ -84,4 +93,52 @@ body {
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 14.5px;
+  /* animation */
+  animation: moveInRight 1s ease-out;
 }
+
+@keyframes moveInLeft {
+  /* start */
+  0% {
+    /* invisible */
+    opacity: 0;
+    /* animation in the -100px (left) in x direction */
+    transform: translateX(-100px);
+  }
+  /* 80% through animation, will give slight bounce effect */
+  80% {
+    transform: translateX(10px);
+  }
+  /* finish */
+  100% {
+    /* fully visible */
+    opacity: 1;
+    /* original position */
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* start */
+  0% {
+    /* invisible */
+    opacity: 0;
+    /* animation in the -100px (left) in x direction */
+    transform: translateX(100px);
+  }
+  /* 80% through animation */
+  80% {
+    transform: translateX(-10px);
+  }
+  /* finish */
+  100% {
+    /* fully visible */
+    opacity: 1;
+    /* original position */
+    transform: translate(0);
+  }
+}
+
+/* There are 2 type of animations in CSS
+1) use 'transition' property and then change the properties that you want to animate on an event such as hover
+2) @keyframes  */
