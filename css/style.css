@@ -1,0 +1,87 @@
+/*
+COLORS:
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+*/
+
+/* Universal selector (*), selects each element on the page and applies these declarations to it  */
+* {
+  margin: 0;
+  padding: 0;
+  /* changes the box model so the borders and paddings are no longer added to the total width or height we specify for a box */
+  box-sizing: border-box;
+}
+
+/* the properties related to fonts are inherited */
+body {
+  /* Lato used first, if not availble then sans-serif */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  /* 1.7 times bigger than the pre defined line height */
+  line-height: 1.7;
+  color: #777;
+  /* applies padding aroundentire body */
+  padding: 30px;
+}
+
+.header {
+  /* height is always 95% of the viewport height */
+  height: 95vh;
+  /* adds a gradient that changes the colour from one to another, and in what direction */
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(31, 211, 224, 0.8),
+      rgba(60, 31, 224, 0.8)
+    ),
+    url(../img/gym1.jpg);
+  /* will always try to fit the element inside the box with the width of the page etc */
+  background-size: cover;
+  /* ensures whatever the viewport size that image stays top of container */
+  background-position: top;
+  position: relative;
+
+  /* polygon(x y, x y, x y), 0 0 means doesn't move from x or y axis, 100% away from opposite x axis */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  /* below is how you shift an element to the middle of a relative parent */
+  top: 40%; /* in relation to parent */
+  left: 50%; /* in relation to parent */
+  transform: translate(-50%, -50%); /* in relation to element itself */
+}
+
+.heading-primary {
+  color: #fff;
+  /* changes text to uppercase */
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  /* block elements occupy the entire width that they have available and create line breaks before and after them */
+  display: block;
+  font-size: 60px;
+  font-weight: 700;
+  /* spacing between each individual letter */
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 14.5px;
+}
